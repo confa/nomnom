@@ -10,6 +10,7 @@
 		width: 20rem
 		padding: 1rem 3rem
 		border: 1px solid $grayBorder
+		border-top-width: 0px
 		color: $grayFont
 		cursor: pointer
 		text-align: left
@@ -17,6 +18,8 @@
 		font-size: 12px
 		font-weight: bold
 		transition: color, background .2s ease-in
+		&:first-of-type
+			border-width: 1px
 		&:hover
 			background: $grayHover
 			color: black
