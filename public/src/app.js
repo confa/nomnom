@@ -32,6 +32,7 @@ require.config({
 
 require([ 'ractive', 'backbone', 'app.router', 'dashboard/dashboard'], function ( Ractive, Backbone, Router, Dashboard) {
 	var router = new Router();
+	Ractive.DEBUG = /unminified/.test(function(){/*unminified*/});
 	if (!Backbone.history.start()) {
 		router.navigate('/', {trigger: true});
 	}
