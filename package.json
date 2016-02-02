@@ -19,7 +19,10 @@
     "jshint": "^2.9.1",
     "jshint-stylish": "^2.1.0"
   },
-  "scripts": {},
+  "scripts": {
+    "start": "node index.js",
+    "postinstall": "cd public && bower install && gulp"
+  },
   "author": "NomNom Insights",
   "license": "All rights reserved, this code can't be shared with out permission from NomNom Insights"
 }
