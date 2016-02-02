@@ -1,0 +1,16 @@
+.slides-viewer
+	.slides-viewer-header
+		.button(on-click="prevClicked") Prev
+		h4 Nom Nom Slider
+		.button(on-click="nextClicked") Next
+	.slides-viewer-content
+		| {{#each slideItems}}
+		.slide-item
+			| {{#if type === slideTypes.PARAGRAPH}}
+			p {{{value}}}
+			| {{elseif type === slideTypes.IMAGE}}
+			img(src="{{value}}" align="left")
+			| {{elseif type === slideTypes.HEADING}}
+			h2 {{value}}
+			| {{/if}}
+		| {{/each}}

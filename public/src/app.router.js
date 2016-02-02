@@ -1,5 +1,5 @@
-define(['backbone', 'deckPicker/deckPicker'], 
-	function(Backbone, DeckPicker) {
+define(['backbone', 'deckPicker/deckPicker', 'slideViewer/slideViewer'], 
+	function(Backbone, DeckPicker, SlideViewer) {
 	var Router = Backbone.Router.extend({
 		currentView_: null,
 		routes: {
@@ -13,6 +13,12 @@ define(['backbone', 'deckPicker/deckPicker'],
 			});
 		},
 		slide: function(name, index) {
+			index = +index || 1;
+			this.currentView_ = new SlideViewer({
+				el: '#container',
+				currentSlide: index
+			});
+			this.currentView_.set('deckName', name);
 		},
 		stats: function(name) {	
 		}
