@@ -1,5 +1,5 @@
-define(['backbone', 'dashboard/dashboard', 'deckPicker/deckPicker', 'slideViewer/slideViewer'], 
-	function(Backbone, Dashboard, DeckPicker, SlideViewer) {
+define(['backbone', 'dashboard/dashboard', 'deckPicker/deckPicker', 'slideViewer/slideViewer', 'stats/stats'], 
+	function(Backbone, Dashboard, DeckPicker, SlideViewer, Stats) {
 	var Router = Backbone.Router.extend({
 		currentView_: null,
 		routes: {
@@ -27,6 +27,10 @@ define(['backbone', 'dashboard/dashboard', 'deckPicker/deckPicker', 'slideViewer
 			Dashboard.setCurrentDeck(name);
 		},
 		stats: function(name) {
+			this.currentView_ = new Stats({
+				el: '#container'
+			});	
+			this.currentView_.set('deckName', name);
 			Dashboard.setCurrentDeck(name);
 		}
 	});

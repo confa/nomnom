@@ -23,6 +23,7 @@ require.config({
 		jquery: '../bower_components/jquery/dist/jquery.min',
 		backbone: '../bower_components/backbone/backbone-min',
 		underscore: '../bower_components/underscore/underscore-min',
+		chartjs: '../bower_components/Chart.js/Chart.min',
 		ractiveBackboneAdapter: '../bower_components/ractive-backbone/dist/ractive-adaptors-backbone.min'
 	},
 	name: 'main',
