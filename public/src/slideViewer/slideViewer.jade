@@ -3,7 +3,8 @@
 		.button(on-click="prevClicked") Prev
 		h4 Nom Nom Slider
 		.button(on-click="nextClicked") Next
-	.slides-viewer-content
+	{{#if slideItems}}
+	.slides-viewer-content(intro='fly')
 		| {{#each slideItems}}
 		.slide-item
 			| {{#if type === slideTypes.PARAGRAPH}}
@@ -14,3 +15,4 @@
 			h2 {{value}}
 			| {{/if}}
 		| {{/each}}
+	{{/if}}

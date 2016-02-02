@@ -1,5 +1,5 @@
-define(['ractive', 'rv!slideViewer/slideViewer', 'ractiveBackboneAdapter', 'slideViewer/slide.collection', 'slideViewer/slideType.enum', 'backbone'], 
-	function (Ractive, slideViewerTmpl, backboneAdaptor, SlideCollection, slideEnum, Backbone) {
+define(['ractive', 'rv!slideViewer/slideViewer', 'ractiveBackboneAdapter', 'slideViewer/slide.collection', 'slideViewer/slideType.enum', 'backbone', 'ractiveTransitionFly'], 
+	function (Ractive, slideViewerTmpl, backboneAdaptor, SlideCollection, slideEnum, Backbone, ractiveTransitionFly) {
 	'use strict';
 
 	var Slide = Ractive.extend({
@@ -8,6 +8,9 @@ define(['ractive', 'rv!slideViewer/slideViewer', 'ractiveBackboneAdapter', 'slid
 		data: {
 			slideItems: new SlideCollection(),
 			slideTypes: slideEnum
+		},
+		transitions: {
+			fly: ractiveTransitionFly
 		},
 		oninit: function() {
 			this.set('currentSlide', this.currentSlide || 1);

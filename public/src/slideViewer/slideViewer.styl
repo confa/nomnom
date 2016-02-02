@@ -8,8 +8,7 @@
 		justify-content: space-between
 		align-items: center
 		h4
-			color: $grayFont
-			text-transform: uppercase
+			display: none
 	.slides-viewer-content
 		padding: 2rem
 		display: flex
@@ -28,3 +27,11 @@
 			p
 				margin: 0
 				text-align: justify
+				
+@media only screen and (min-width: $screenMedium)
+	.slides-viewer
+		.slides-viewer-header
+			h4
+				display: block
+				color: $grayFont
+				text-transform: uppercase
