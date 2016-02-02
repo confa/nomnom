@@ -12,6 +12,7 @@ define(['ractive', 'rv!slideViewer/slideViewer', 'ractiveBackboneAdapter', 'slid
 		oninit: function() {
 			this.set('currentSlide', this.currentSlide || 1);
 			this.on('nextClicked', this.goToNextSlide);
+			this.on('prevClicked', this.goToPrevSlide);
 			this.observe('deckName', this.setCurrentDeck);
 		},
 		setCurrentDeck: function(currentDeck) {
@@ -24,13 +25,21 @@ define(['ractive', 'rv!slideViewer/slideViewer', 'ractiveBackboneAdapter', 'slid
 			this.set('currentSlide', index);
 			slideCollection.loadSlide(index);
 		},
+		goToPrevSlide: function() {
+			var deckName = this.get('deckName'),
+				totalSlides = this.get('slideItems').getTotalSlides(),
+				currentSlide = +this.get('currentSlide'),
+				prev = (--currentSlide % (totalSlides + 1)) || totalSlides;
+
+			this.router_.navigate('slide/' + deckName + '/' + prev);
+			this.setCurrentSlide(prev);
+		},
 		goToNextSlide: function() {
 			var deckName = this.get('deckName'),
 				totalSlides = this.get('slideItems').getTotalSlides(),
 				currentSlide = +this.get('currentSlide'),
 				nextSlide = (++currentSlide % (totalSlides + 1)) || 1;
 
-			this.set('currentSlide', nextSlide);
 			this.router_.navigate('slide/' + deckName + '/' + nextSlide);
 			this.setCurrentSlide(nextSlide);
 		},
