@@ -8,7 +8,8 @@ function toResponse(obj) {
 }
 
 var app = express();
-app.use(express.static('.'));
+app.use(express.static('./public'));
+app.use(express.static('./public/dist'));
 
 app.get('/api/decks', function(req, res) {
   res.header('Content-Type', 'application/json');
