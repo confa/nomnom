@@ -1,22 +1,4 @@
 require.config({
-	shim: {
-		underscore: {
-			exports: '_'
-		},
-		backbone: {
-			deps: [
-				'underscore',
-				'jquery'
-			],
-			exports: 'Backbone'
-		},
-		ractiveBackboneAdapter: {
-			deps: [
-				'backbone',
-				'ractive'
-			]
-		}
-	},
 	paths: {
 		ractive: '../bower_components/ractive/ractive-legacy.min',
 		rv: '../bower_components/rv/rv',

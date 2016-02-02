@@ -1,10 +1,13 @@
-var gulp = require('gulp');
-var jade = require('gulp-jade');
-var stylus = require('gulp-stylus');
-var concat = require('gulp-concat');
-var nib = require('nib');
-var stylish = require('jshint-stylish');
-var jshint = require('gulp-jshint');
+var gulp = require('gulp'),
+	jade = require('gulp-jade'),
+	stylus = require('gulp-stylus'),
+	concat = require('gulp-concat'),
+	nib = require('nib'),
+	stylish = require('jshint-stylish'),
+	amdOptimize = require('amd-optimize'),
+	autoprefixer = require('gulp-autoprefixer'),
+	uglify = require('gulp-uglify'),
+	jshint = require('gulp-jshint');
 
 gulp.task('stylus', function() {	
 	gulp.src('./public/src/**/*.styl')
@@ -13,6 +16,9 @@ gulp.task('stylus', function() {
 				use: nib(),
 				compress: true
 			}))
+		.pipe(autoprefixer({
+			browsers: ['last 2 versions']
+		}))
 		.pipe(gulp.dest('./public/dist/'));
 });
 
@@ -29,14 +35,36 @@ gulp.task('js', function() {
 		.pipe(gulp.dest('./public/dist'));
 });
 
-gulp.task('default', function() {
+gulp.task('js_prod', function(cb) {
+	var js = gulp.src('./public/src/**/*.js')
+		.pipe(jshint())
+		.pipe(jshint.reporter('default'))
+		.pipe(amdOptimize("app",
+			{
+				name: "app",
+				configFile: "./public/src/app.js",
+				baseUrl: './public/src'
+			}
+		))
+		.pipe(concat('app.js'))
+		.pipe(uglify())
+		.pipe(gulp.dest('./public/dist'));
+});
+
+gulp.task('debug', function() {
 	gulp.run('stylus');
 	gulp.run('jade');
 	gulp.run('js');
 });
 
+gulp.task('default', function() {
+	gulp.run('stylus');
+	gulp.run('jade');
+	gulp.run('js_prod');
+});
+
 gulp.task('watch', function() {
-	gulp.run('default');
+	gulp.run('debug');
 	gulp.watch('./public/src/**/*.js', function() {
 		gulp.run('js');
 	});

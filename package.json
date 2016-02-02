@@ -11,13 +11,15 @@
     "nib": "^1.1.0"
   },
   "devDependencies": {
+    "amd-optimize": "^0.6.1",
+    "gulp-autoprefixer": "^3.1.0",
     "gulp-concat": "^2.6.0",
     "gulp-jshint": "^2.0.0",
+    "gulp-uglify": "^1.5.1",
     "jshint": "^2.9.1",
     "jshint-stylish": "^2.1.0"
   },
-  "scripts": {
-  },
+  "scripts": {},
   "author": "NomNom Insights",
   "license": "All rights reserved, this code can't be shared with out permission from NomNom Insights"
 }
