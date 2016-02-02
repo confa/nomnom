@@ -22,7 +22,8 @@ require.config({
 		rv: '../bower_components/rv/rv',
 		jquery: '../bower_components/jquery/dist/jquery.min',
 		backbone: '../bower_components/backbone/backbone-min',
-		underscore: '../bower_components/underscore/underscore-min'
+		underscore: '../bower_components/underscore/underscore-min',
+		ractiveBackboneAdapter: '../bower_components/ractive-backbone/dist/ractive-adaptors-backbone.min'
 	},
 	name: 'main',
 	stubModules: [ 'rv' ]

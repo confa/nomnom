@@ -1,5 +1,5 @@
-define(['backbone'], 
-	function(Backbone) {
+define(['backbone', 'deckPicker/deckPicker'], 
+	function(Backbone, DeckPicker) {
 	var Router = Backbone.Router.extend({
 		currentView_: null,
 		routes: {
@@ -8,6 +8,9 @@ define(['backbone'],
 			'stats/:name':          'stats'
 		},
 		root: function() {
+			this.currentView_ = new DeckPicker({
+				el: '#container'
+			});
 		},
 		slide: function(name, index) {
 		},

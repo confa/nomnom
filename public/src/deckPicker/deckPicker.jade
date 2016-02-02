@@ -1,0 +1,5 @@
+.deck-picker
+	h2 Select Deck
+	| {{#each decks}}
+	.deck(on-click="openBoard:{{name}}") {{name}}
+	| {{/each}}
