@@ -8,6 +8,10 @@
 	color: $lightGray
 	display: flex
 	flex-direction: column
+	&.root-route
+		.navbar-item:not(.navbar-logo)
+			background: $gray
+			pointer-events: none
 	.navbar-item
 		height: 4rem
 		display: flex
