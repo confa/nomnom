@@ -1,0 +1,28 @@
+.navbar
+	position: fixed
+	left: 0
+	top: 0
+	width: 4rem
+	height: 100%
+	background: $darkGray
+	color: $lightGray
+	display: flex
+	flex-direction: column
+	.navbar-item
+		height: 4rem
+		display: flex
+		flex-direction: column
+		align-items: center
+		justify-content: center
+		border-bottom: 1px solid $gray
+		cursor: pointer
+		&:visited
+			color: $lightGray
+		&:not(.navbar-logo):hover
+			background: $yellow
+			color: black
+		&.navbar-logo
+			color: white
+			font-size: 16px
+			font-weight: bold
+			text-transform: uppercase

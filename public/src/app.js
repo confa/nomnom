@@ -28,7 +28,7 @@ require.config({
 	stubModules: [ 'rv' ]
 });
 
-require([ 'ractive', 'backbone', 'app.router'], function ( Ractive, Backbone, Router) {
+require([ 'ractive', 'backbone', 'app.router', 'dashboard/dashboard'], function ( Ractive, Backbone, Router, Dashboard) {
 	var router = new Router();
 	if (!Backbone.history.start()) {
 		router.navigate('/', {trigger: true});
